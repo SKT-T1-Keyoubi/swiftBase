@@ -12,6 +12,68 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("------------------------函数-------------------")
+        //无参数的函数
+        func simplePrint(){
+            print("simple print!")
+        }
+        //有参数的函数
+        func sum(a:Int,b:Int,c:Int){
+            print("sum = \(a + b + c)")
+        }
+        func printName(myname:NSString,have money:NSString){
+            print("\(myname) hava \(money)")
+        }
+        func otherSum(a:Int,_ b:Int){//-------如果不想第二个以及后续的参数设置参数名那么需要在参数名前面加上_
+            print("otherSum = \(a + b)")
+        }
+        //参数有默认值的函数
+        func result(i:Int = 5,result:Int){
+            print("result is \(i + result)")
+        }
+        //含有变量参数的函数
+        func midValue(var value:Int){
+            value = value / 2
+            print("midValue is \(value)")
+        }
+        func swapTwoNum(var a:Int,var _ b:Int){
+            let temp = a
+            a = b
+            b = temp
+            print(a,b)
+        }
+        //有一个返回值的函数
+        func add(a:Int,_ b:Int) ->NSString{
+            return "result is \(a + b)"
+        }
+        //有多个返回值的函数----注意->后面返回值的个数要和return中返回值的个数一致，否则程序就会报错
+        func addAndPrintString(a:Int,_ b:Int,c:NSString) ->(Int,NSString){
+            return (a + b,"\(c)")
+        }
+        //使用函数类型作为参数的函数
+        func addTwoNumber(a:Int,_ b:Int) ->Int{
+            return a + b
+        }
+        func multiNumber(a:Int,_ b:Int) ->Int{
+            return a * b
+        }
+        func bigFun(fun:(Int,Int) ->Int,a:Int,b:Int){
+            print(fun(a,b))
+        }
+        //调用函数
+        simplePrint()
+        sum(12, b: 10, c: 10)//只有第一个参数可以省略其外部参数名
+        printName("zhangxin", have: "10000000000")
+        otherSum(10, 30)
+        result(result: 10)
+        midValue(50)
+        swapTwoNum(10, 20)
+        print(add(2, 3))
+        print(addAndPrintString(4, 5, c: "zhangxin"))
+        bigFun(addTwoNumber, a: 4, b: 5)//相当于函数调用函数
+        bigFun(multiNumber, a: 4, b: 5)
+    }
+    func test1(){
         print("-----------------------基础的数据类型---------------------------")
         //常量用let定义，变量用var定义
         let a = 1
@@ -79,7 +141,7 @@ class ViewController: UIViewController {
         print("-----------------------集合类型：数组和字典-----------------------------------")
         //数组
         var arr = [1,12.54,"zhangxin"]
-       // var arr2 = arr//这个就是数组的拷贝-------拷贝触发的条件：【数组的长度发生改变的时候】
+        // var arr2 = arr//这个就是数组的拷贝-------拷贝触发的条件：【数组的长度发生改变的时候】
         print(arr)
         print(arr.count)//数组长度
         print(arr.isEmpty)//数组是否为空
@@ -89,7 +151,7 @@ class ViewController: UIViewController {
         print(arr)
         arr.removeLast()//移除最后一个元素
         print(arr)
-
+        
         /**
         *  数组的运算符号的知识还不是很熟悉
         */
@@ -99,7 +161,7 @@ class ViewController: UIViewController {
         print(dic)
         dic.removeValueForKey(1)//移除key为1的值
         print(dic)
-    }
 
+    }
 }
 
