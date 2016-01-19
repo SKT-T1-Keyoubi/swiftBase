@@ -284,6 +284,7 @@
 				406BD28E1C4D07B30052B942 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

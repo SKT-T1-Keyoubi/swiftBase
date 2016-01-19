@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -60,6 +61,27 @@ class ViewController: UIViewController {
         func bigFun(fun:(Int,Int) ->Int,a:Int,b:Int){
             print(fun(a,b))
         }
+        //函数的嵌套
+        func baseFunc(a:Int,_ b:Int) ->Int{
+            return a + b
+        }
+        func f1(a:Int,_ b:Int) ->Int{
+            let c = baseFunc(10, 20)//函数内嵌套函数
+            return a + b + c
+        }
+        //闭包函数
+        //-----------无参形式的闭包函数--------
+        let closeFunc={ () in
+            print("swift")
+        }
+        //-----------有参形式的闭包函数--------
+        let addTwo = { (a:Int,b:Int) ->Int in
+            return a + b
+        }
+        /**--------------------
+        有关函数的闭包有些敲不出来！
+        *///---------------------
+        
         //调用函数
         simplePrint()
         sum(12, b: 10, c: 10)//只有第一个参数可以省略其外部参数名
@@ -72,6 +94,9 @@ class ViewController: UIViewController {
         print(addAndPrintString(4, 5, c: "zhangxin"))
         bigFun(addTwoNumber, a: 4, b: 5)//相当于函数调用函数
         bigFun(multiNumber, a: 4, b: 5)
+        print(f1(5, 10))//输出45
+        closeFunc()
+        print(addTwo(10,20))
     }
     func test1(){
         print("-----------------------基础的数据类型---------------------------")
@@ -163,5 +188,6 @@ class ViewController: UIViewController {
         print(dic)
 
     }
+    
 }
 
